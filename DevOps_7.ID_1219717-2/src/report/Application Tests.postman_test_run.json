@@ -1,0 +1,177 @@
+{
+	"id": "f074adaa-f197-4ce5-bace-232a8aad0577",
+	"name": "Application Tests",
+	"timestamp": "2025-07-05T12:29:37.249Z",
+	"collection_id": "46495895-1b50b079-027d-4846-bd72-2e419ce92508",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 5,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-07-05T12:29:14.234Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "702ce8ec-fe18-4114-95b6-6e45c17c0a5a",
+			"name": "Login User",
+			"url": "localhost:8081/api/v1/auth/authorize",
+			"time": 1474,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Login as a regular user": true
+			},
+			"testPassFailCounts": {
+				"Login as a regular user": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1474
+			],
+			"allTests": [
+				{
+					"Login as a regular user": true
+				}
+			]
+		},
+		{
+			"id": "e090af15-7ec8-45a3-9cf1-a6330def1d00",
+			"name": "Get Hotles",
+			"url": "localhost:8087/api/v1/gateway/hotels",
+			"time": 2492,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Get hotels info": true
+			},
+			"testPassFailCounts": {
+				"Get hotels info": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2492
+			],
+			"allTests": [
+				{
+					"Get hotels info": true
+				}
+			]
+		},
+		{
+			"id": "3124d341-206d-47dc-affd-9cfa5e14e56e",
+			"name": "Get Hotel",
+			"url": "localhost:8087/api/v1/gateway/hotels/9d05ba36-bf8d-11eb-8529-0242ac130003",
+			"time": 519,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Get hotels info": true
+			},
+			"testPassFailCounts": {
+				"Get hotels info": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				519
+			],
+			"allTests": [
+				{
+					"Get hotels info": true
+				}
+			]
+		},
+		{
+			"id": "543891ad-ceca-4b44-b1bd-fa5dbc87311c",
+			"name": "Book Hotel",
+			"url": "localhost:8087/api/v1/gateway/booking",
+			"time": 17563,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Book hotel": true
+			},
+			"testPassFailCounts": {
+				"Book hotel": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17563
+			],
+			"allTests": [
+				{
+					"Book hotel": true
+				}
+			]
+		},
+		{
+			"id": "ef121d8a-2add-49ed-9878-8d99d3c24902",
+			"name": "Get User's Loyalty Balance",
+			"url": "localhost:8087/api/v1/gateway/loyalty",
+			"time": 312,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Get user's loyalty balance": true
+			},
+			"testPassFailCounts": {
+				"Get user's loyalty balance": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				312
+			],
+			"allTests": [
+				{
+					"Get user's loyalty balance": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 22360,
+	"collection": {
+		"requests": [
+			{
+				"id": "702ce8ec-fe18-4114-95b6-6e45c17c0a5a",
+				"method": "GET"
+			},
+			{
+				"id": "e090af15-7ec8-45a3-9cf1-a6330def1d00",
+				"method": "GET"
+			},
+			{
+				"id": "3124d341-206d-47dc-affd-9cfa5e14e56e",
+				"method": "GET"
+			},
+			{
+				"id": "543891ad-ceca-4b44-b1bd-fa5dbc87311c",
+				"method": "POST"
+			},
+			{
+				"id": "ef121d8a-2add-49ed-9878-8d99d3c24902",
+				"method": "GET"
+			}
+		]
+	}
+}

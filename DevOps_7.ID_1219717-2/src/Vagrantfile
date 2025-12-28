@@ -1,0 +1,58 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  BOX_NAME = "ubuntu/bionic64"
+
+  # Общие параметры для всех ВМ
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "4100"
+    vb.cpus = 1
+  end
+
+  # Общая папка services (замените путь if нужно)
+  services_path = "C:/Users/Админ/DevOps_7.ID_1219717-1/src/services"
+
+  # Manager node
+  config.vm.define "manager01" do |mgr|
+    mgr.vm.box = BOX_NAME
+    mgr.vm.hostname = "manager01"
+    mgr.vm.network "private_network", ip: "192.168.56.101"
+
+    mgr.vm.boot_timeout = 600
+
+    # Синхронизация папки services
+    mgr.vm.synced_folder services_path, "/home/vagrant/services"
+
+ 
+
+    # Устанавливаем Docker и инициализируем Swarm
+    mgr.vm.provision "shell", path: "C:/Users/Админ/DevOps_7.ID_1219717-1/src/vagrant_manager.sh"
+  end
+
+  # Worker1 node
+  config.vm.define "worker01" do |worker|
+    worker.vm.box = BOX_NAME
+    worker.vm.hostname = "worker01"
+    worker.vm.network "private_network", ip: "192.168.56.102"
+
+    worker.vm.synced_folder services_path, "/home/vagrant/services"
+   
+
+    worker.vm.provision "shell", path: "C:/Users/Админ/DevOps_7.ID_1219717-1/src/docker_worker.sh"
+  end
+
+  # Worker2 node
+  config.vm.define "worker02" do |worker|
+    worker.vm.box = BOX_NAME
+    worker.vm.hostname = "worker02"
+    worker.vm.network "private_network", ip: "192.168.56.103"
+
+    worker.vm.synced_folder services_path, "/home/vagrant/services"
+  
+
+    worker.vm.provision "shell", path: "C:/Users/Админ/DevOps_7.ID_1219717-1/src/docker_worker.sh"
+  end
+end
+

@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/services":{"guestpath":"/home/vagrant/services","hostpath":"C:/Users/Админ/DevOps_7.ID_1219717-1/src/services","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/Админ/DevOps_7.ID_1219717-1/src","disabled":false,"__vagrantfile":true}}}
