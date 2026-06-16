@@ -1,0 +1,7 @@
+перед этим удалить гитлабовский .git из корня проекта
+
+
+cd ~/School_21-my_projects-Surgut-
+git add My_New_Project/
+git commit -m "Add My_New_Project"
+git push origin main
