@@ -1,0 +1,8 @@
+test
+CLEAN
+clean
+^#include
+regex
+while
+for
+

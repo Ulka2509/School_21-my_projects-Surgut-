@@ -1,0 +1,24 @@
+FROM nginx
+# Устанавливаем рабочую директорию
+  WORKDIR /etc/nginx
+
+  # Копируем файл nginx.conf в контейнер
+  COPY nginx.conf /etc/nginx/nginx.conf
+
+
+  # Устанавливаем необходимые пакеты
+  RUN apt-get update && apt-get install -y gcc spawn-fcgi libfcgi-dev
+
+  # Копируем файл hello.c в контейнер
+  COPY hello.c /etc/nginx/hello.c
+
+  # Компилируем FastCGI сервер
+  RUN gcc /etc/nginx/hello.c -o /etc/nginx/hello -l fcgi
+
+  # Экспортируем порт
+  EXPOSE 80
+
+  # Определяем команду для исполнения
+  ENTRYPOINT ["/etc/nginx/hello"]
+
+    
