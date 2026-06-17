@@ -1,150 +1,158 @@
 ## Part 1. Установка ОС
 Узнайте версию Ubuntu, выполнив команду 
 cat /etc/issue.
-![img](screen/1.png)
+![img](screen/2.png)
 ## Part 2. Создание пользователя
 Вставьте скриншот вызова команды для создания пользователя.
-![img](screen/21.png)
+![img](screen/6.png)
 
 добавление в группу adm
-![img](screen/22.png)
-![img](screen/24.png)
+![img](screen/7.png)
 
 Новый пользователь должен быть в выводе команды 
 cat /etc/passwd
-![img](screen/23.png)
+![img](screen/8.png)
 ## Part 3. Настройка сети ОС
 Задать название машины вида user-1
-![img](screen/31.png)
-![img](screen/32.png)
+![img](screen/9.png)
+После переззагрузки компьютера.
+![img](screen/10.png)
 Установить временную зону, соответствующую вашему текущему местоположению.
-![img](screen/33.png)
+![img](screen/11.png)
 Вывести названия сетевых интерфейсов с помощью консольной команды.
-![img](screen/34.png)
+![img](screen/12.png)
 Один из самых основных виртуальных интерфейсов - lo. Это локальный интерфейс, который позволяет программам обращаться к этому компьютеру.
 Используя консольную команду получить ip адрес устройства, на котором вы работаете, от DHCP сервера.
 
 Установка
-![img](screen/35.png)
+![img](screen/12.jpg)
 Используя консольную команду получить ip адрес устройства, на котором вы работаете, от DHCP сервера.
 ![img](screen/36.png)
 DHCP - это клиент-серверный протокол динамической конфигурации хоста (Dynamic Host Configuration Protocol), с помощью которого в ИТ-инфраструктуре сетевые параметры каждого нового устройства прописываются автоматически.
 
 Определить и вывести на экран внешний ip-адрес шлюза (ip) и внутренний IP-адрес шлюза, он же ip-адрес по умолчанию (gw)
-![img](screen/olo.png)
-![img](screen/38.png)
+![img](screen/15.png)
+![img](screen/14.png)
 
 Задать статичные (заданные вручную, а не полученные от DHCP сервера) настройки ip, gw, dns (использовать публичный DNS серверы, например 1.1.1.1 или 8.8.8.8).
-![img](screen/39.png)
-![img](screen/391.png)
-![img](screen/392.png)
-![img](screen/393.png)
+Нашла файл  конфигурации в /etc/netplan/.
+![img](screen/16.png)
+![img](screen/17.png)
+![img](screen/21.png)
+![img](screen/22.png)
 после ребута
-![img](screen/394.png)
-![img](screen/395.png)
+![img](screen/23.png)
+Проверка доступности хоста с IP-адресом 1.1.1.1. 
+![img](screen/24.png)
+Проверка доступности (достижимости) хоста по сети (ya.ru: это адрес хоста, который хочу пинговать,адрес сервиса Яндекса.)
+![img](screen/25.png)
 ## Part 4. Обновление ОС
 Обновить системные пакеты до последней на момент выполнения задания версии.
-![img](screen/41.png)
-![img](screen/42.png)
+![img](screen/26.png)
+![img](screen/27.png)
 ## Part 5. Использование команды sudo
 Разрешить пользователю, созданному в Part 2, выполнять команду sudo.
-![img](screen/51.png)
+![img](screen/28.png)
 
 Поменять hostname ОС от имени пользователя, созданного в пункте Part 2 (используя sudo).
-![img](screen/52.png)
+![img](screen/29.png)
 
-sudo -это утилита, она позволяет временно поднимать привилегии и выполнять задачи администрирования системы
+sudo -это утилита, позволяющая временно поднимать привилегии и выполнять задачи администрирования системы
 ## Part 6. Установка и настройка службы времени
 Настроить службу автоматической синхронизации времени.
-![img](screen/61.png)
+![img](screen/30.png)
 
 Вывод следующей команды должен содержать NTPSynchronized=yes: 
 timedatectl show
-![img](screen/62.png)
+![img](screen/31.png)
 ## Part 7. Установка и использование текстовых редакторов
 Установить текстовые редакторы VIM (+ любые два по желанию NANO, MCEDIT, JOE и т.д.)
-![img](screen/71.png)
+![img](screen/32.png)
 
 Используя каждый из трех выбранных редакторов, создайте файл test_X.txt, где X -- название редактора, в котором создан файл. Напишите в нём свой никнейм, закройте файл с сохранением изменений.
 
 vim7
-![img](screen/72.png)
-![img](screen/73.png)
+![img](screen/33.png)
+![img](screen/34.png)
 выход: esc+:wq
 
 nano
-![img](screen/74.png)
+![img](screen/35.png)
 выход:  control+o+x
 
 mcedit
-![img](screen/75.png)
+![img](screen/36.png)
 выход: f2+f10
 
 Используя каждый из трех выбранных редакторов, откройте файл на редактирование, отредактируйте файл, заменив никнейм на строку "21 School 21", закройте файл без сохранения изменений.
 vim
-![img](screen/76.png)
+![img](screen/39.png)
 выход:q!
 
 nano
-![img](screen/77.png)
+![img](screen/37.png)
 выход: control+x
 
 mcedit
-![img](screen/78.png)
+![img](screen/38.png)
 выход: f10
 
 Используя каждый из трех выбранных редакторов, отредактируйте файл ещё раз (по аналогии с предыдущим пунктом), а затем освойте функции поиска по содержимому файла (слово) и замены слова на любое другое.
 
 vim поиск
-![img](screen/79.png)
+![img](screen/40.png)
 
 замена
-![img](screen/792.png)
+![img](screen/41.png)
 /- поиск
 
 nano поиск
-![img](screen/793.png)
+![img](screen/43.png)
 
 замена - control /
-![img](screen/794.png)
-![img](screen/795.png)
+![img](screen/44.png)
+![img](screen/45.png)
 поиск - control w
 
 mcedit
 
 поиск -f7
-![img](screen/796.png)
-![img](screen/797.png)
+![img](screen/50.png)
+![img](screen/51.png)
 замена - f4
-![img](screen/798.png)
-![img](screen/799.png)
-![img](screen/700.png)
+![img](screen/52.png)
+![img](screen/53.png)
+![img](screen/54.png)
+![img](screen/55.png)
 
 ## Part 8. Установка и базовая настройка сервиса SSHD
 Установить службу SSHd.
 
 обновление репозитория
-![img](screen/81.png)
+![img](screen/56.png)
 установление ssh 
-![img](screen/812.png)
+![img](screen/57.png)
 установление OpenSSH
-![img](screen/813.png)
+![img](screen/58.png)
 
 Добавить автостарт службы при загрузке системы.
-![img](screen/82.png)
+![img](screen/59.png)
 
 статус ssh
-![img](screen/8.png)
+![img](screen/60.png)
+
+Открыть файл конфигурации SSH.
+![img](screen/61.png)
 
 Перенастроить службу SSHd на порт 2022.
-![img](screen/83.png)
+![img](screen/65.png)
 
 ssh перезапуск для сохранения изменений 
-![img](screen/84.png)
+![img](screen/64.png)
 
 Используя команду ps, показать наличие процесса sshd. Для этого к команде нужно подобрать ключи.
 
-![img](screen/851.png)
+![img](screen/66.png)
 -tan:
 
 t-по протоколу TCP
@@ -167,7 +175,7 @@ State - состояние сокета
 
 Если в качестве адреса отображается 0.0.0.0 , то это означает - "любой адрес", т. е в соединении могут использоваться все IP-адреса существующие на данном компьютере.
 
-![img](screen/852.png)
+![img](screen/67.png)
 ps -aux | grep sshd output:
 
 ps-выводит список текущих процессов на вашем сервере в виде таблицы
@@ -183,127 +191,136 @@ x-заставляет ps перечислить все процессы, при
 Установить и запустить утилиты top и htop.
 
 top
-![img](screen/9.png)
+![img](screen/70.png)
 
 uptime
-
-![img](screen/uptime.png)
+![img](screen/71.png)
 
 количество авторизованных пользователей
-
-![img](screen/countusers.png)
+![img](screen/72.png)
 
 общую загрузку системы
-![img](screen/a.png)
+![img](screen/73.png)
+
 общее количество процессов
-![img](screen/b.png)
+![img](screen/74.png)
+
 загрузку cpu
-![img](screen/cpu.png)
+![img](screen/75.png)
+
 загрузку памяти
-![img](screen/memory.png)
+![img](screen/76.png)
+
 pid процесса занимающего больше всего памяти
-![img](screen/pidmemory.png)
+![img](screen/77.png)
+
 pid процесса, занимающего больше всего процессорного времени
-![img](screen/ggh.png)
+![img](screen/78.png)
 
 htop
 отсортированному по PID
-![img](screen/htoppid.png)
+![img](screen/79.png)
 PERCENT_CPU
-![img](screen/cpuproc.png)
+![img](screen/80.png)
 PERCENT_MEM
-![img](screen/mem.png)
+![img](screen/81.png)
 TIME
-![img](screen/time.png)
+![img](screen/82.png)
 отфильтрованному для процесса sshd
-![img](screen/filtersshd.png)
+![img](screen/83.png)
 с процессом syslog, найденным, используя поиск
-![img](screen/syslog.png)
+![img](screen/84.png)
 с добавленным выводом hostname, clock и uptime
-![img](screen/hostnameclockuptime.png)
+![img](screen/85.png)
 
 ## Part 10. Использование утилиты fdisk
 
 Запустить команду fdisk -l.
-![img](screen/101.png)
-имя ![img](screen/name.png)
-размер 8.25Gb
+![img](screen/86.png)
+имя ![img](screen/87.png)
+размер 13,37 Gb, количество секторов 28024832
 
-количество секторов 8854175744
-![img](screen/102.png)
+Информация об использовании оперативной памяти на компьютере, в удобоном для чтения формате
+![img](screen/88.png)
 
 ## Part 11. Использование утилиты df
 df
 
 Для корневого раздела (/):
-![img](screen/df.png)
+![img](screen/89.png)
 
-размер раздела-8408452
+размер раздела - 13685808
 
-размер занятого пространства - 2753880
+размер занятого пространства - 4978472
 
-размер свободного пространства-5205856
+размер свободного пространства - 57990332
 
-процент использования-35
+процент использования - 35
 
-
-Единица измерения в выводе-килобайты
+единица измерения в выводе - килобайты
 
 df -Th
 для корневого раздела (/):
-![img](screen/th.png)
-размер раздела-8.1Gb
+![img](screen/90.png)
+размер раздела - 14 Gb
 
-размер занятого пространства-2.7Gb
+размер занятого пространства - 4,8 Gb
 
-размер свободного пространства-5.0Gb
+размер свободного пространства - 7,7 Gb
 
-процент использования-35
+процент использования - 39
 
-Tип файловой системы для раздела-ext4
+Tип файловой системы для раздела - ext4
 
 ## Part 12. Использование утилиты du
 Вывести размер папок /home, /var, /var/log (в байтах)
-![img](screen/121.png)
-![img](screen/sh1.png)
+![img](screen/91.png)
+
 Вывести размер всего содержимого в /var/log (не общее, а каждого вложенного элемента, используя *)
-![img](screen/122.png)
-![img](screen/sh2.png)
+![img](screen/92.png)
+![img](screen/93.png)
 
 ## Part 13. Установка и использование утилиты ncdu
 
 Установить утилиту ncdu.
-![img](screen/installncdu.png)
+![img](screen/94.png)
 Вывести размер папок /home, /var, /var/log.
-![img](screen/home.png)
-![img](screen/var.png)
-![img](screen/varlog.png)
+![img](screen/95.png)
+![img](screen/96.png)
+![img](screen/97.png)
 
 ## Part 14. Работа с системными журналами
 
 dmesg
-![img](screen/dmesg.png)
+![img](screen/99.png)
+![img](screen/98.png)
+
 syslog
-![img](screen/14syslog.png)
+![img](screen/101.png)
+![img](screen/100.png)
+
 auth
-![img](screen/auth.png)
-время последней успешной авторизации-Feb 12 18:09:48
+![img](screen/103.png)
+![img](screen/102.png)
+время последней успешной авторизации - Aug 31 15:17:01
 
-имя пользователя-user-1
+имя пользователя - loraleea 
 
-метод входа в систему-sudo
+метод входа в систему - login 
 
 Перезапустить службу SSHd.
-![img](screen/141.png)
-![img](screen/142.png)
+![img](screen/104.png)
 
 ## Part 15. Использование планировщика заданий CRON
 uptime
-![img](screen/cronuptime.png)
+![img](screen/112.png)
+
 Найти в системных журналах строчки (минимум две в заданном временном диапазоне) о выполнении.
-![img](screen/res.png)
+![img](screen/113.png)
+
 список текущих задач
-![img](screen/tasks.png)
+![img](screen/108.png)
+
 Удалите все задания из планировщика заданий.
-![img](screen/154.png)
-![img](screen/1555.png)
+![img](screen/109.png)
+![img](screen/111.png)
