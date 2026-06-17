@@ -8,7 +8,7 @@
 Здесь собраны решения заданий по направлениям:
 - **Linux** (базовое и продвинутое администрирование)
 - **DevOps** (сети, мониторинг, контейнеризация, CI/CD)
-- **C++** (разработка библиотек)
+- **C** (разработка библиотек)
 - **Автоматизация** (скрипты, инструменты)
 
 ---
@@ -28,7 +28,7 @@
 | **[DO8_AutomationTools.ID_1220167-2](./DO8_AutomationTools.ID_1220167-2/)** | Инструменты автоматизации: Ansible, Terraform, скрипты | ✅ |
 | **[DevOps_7.ID_1219717-2](./DevOps_7.ID_1219717-2/)** | DevOps проект: комплексное решение | ✅ |
 
-### 🔹 C++
+### 🔹 C
 
 | Проект | Описание | Статус |
 |--------|----------|--------|
@@ -41,7 +41,6 @@
 ### Языки программирования
 - ![Bash](https://img.shields.io/badge/Bash-4F4F4F?style=flat&logo=gnu-bash&logoColor=white) Bash
 - ![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white) C
-- ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=c%2B%2B&logoColor=white) C++
 - ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) Python
 
 ### DevOps инструменты
