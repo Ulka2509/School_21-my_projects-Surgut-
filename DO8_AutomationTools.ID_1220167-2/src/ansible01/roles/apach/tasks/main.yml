@@ -1,0 +1,22 @@
+---
+- name: install apache2
+  become: true
+  ansible.builtin.apt:
+    name: apache2
+    update_cache: yes
+    state: latest
+
+- name: Start Apache service
+  become: true
+  service:
+    name: apache2
+    state: started
+  
+- name: Create a simple HTML page
+  become: true
+  copy:
+    content: "<h1>Apache on node02 is running!</h1>"
+    dest: /var/www/html/index.html
+
+# https://habr.com/ru/companies/otus/articles/721166/
+# https://www.geeksforgeeks.org/install-apache-in-ubuntu-using-ansible/

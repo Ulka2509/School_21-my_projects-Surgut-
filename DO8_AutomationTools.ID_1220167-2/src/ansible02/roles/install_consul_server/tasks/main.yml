@@ -1,0 +1,69 @@
+---
+- name: install dependencies
+  apt:
+    name:
+      - unzip
+      - curl
+    state: present
+    update_cache: yes
+
+# - name: download Consul
+#   get_url:
+#     url: https://github.com/hashicorp/consul/archive/refs/tags/v1.21.1.zip
+#     dest: /tmp/consul.zip
+
+# - name: unzip Consul
+#   unarchive:
+#     src: /tmp/consul.zip
+#     dest: /usr/local/bin/
+#     remote_src: yes
+#     creates: /usr/local/bin/consul
+
+- name: Create Consul directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+  loop:
+    - /opt/consul
+    - /opt/consul/data
+    - /etc/consul.d
+
+- name: Unzip Consul
+  unarchive:
+    # src: /tmp/consul.zip
+    src: consul01/consul_1.21.2_linux_amd64.zip
+    dest: /usr/local/bin/
+    #remote_src: false
+    mode: "0755"
+
+- name: copy consul_server.hcl
+  copy:
+    src: consul01/consul_server.hcl
+    dest: /etc/consul.d/consul.hcl
+
+- name: сreate systemd service for Consul
+  copy:
+    dest: /etc/systemd/system/consul.service
+    content: |
+      [Unit]
+      Description=Consul Agent
+      After=network.target
+
+      [Service]
+      ExecStart=/usr/local/bin/consul agent -config-dir=/etc/consul.d
+      Restart=on-failure
+      LimitNOFILE=65536
+
+      [Install]
+      WantedBy=multi-user.target
+    mode: "0644"
+
+- name: reload systemd
+  command: systemctl daemon-reload
+
+- name: enable Consul
+  service:
+    name: consul
+    enabled: yes
+    state: started

@@ -1,0 +1,30 @@
+Vagrant.configure("2") do |config|
+  # Общие настройки для всех машин
+  config.vm.box = "ubuntu/focal64"
+
+  # Настройка manager (менеджер Swarm)
+  config.vm.define "manager" do |manager|
+    manager.vm.hostname = "manager"
+    manager.vm.network "private_network", ip: "192.168.56.10"
+    manager.vm.provision "shell", inline: <<-SHELL
+      sudo apt-get update && sudo apt-get install -y ansible
+    SHELL
+  end
+
+  # Настройка node01 (воркер Swarm)
+  config.vm.define "node01" do |worker|
+    worker.vm.hostname = "node01"
+    worker.vm.network "private_network", ip: "192.168.56.11"
+    worker.vm.network "forwarded_port", guest: 8087, host: 8087, id: "gateway"
+    worker.vm.network "forwarded_port", guest: 8081, host: 8081, id: "session"
+    worker.vm.provider "virtualbox" do |v|
+      v.memory = "4096"
+    end
+  end
+
+  # Настройка node02 (воркер Swarm)
+  config.vm.define "node02" do |worker|
+    worker.vm.hostname = "node02"
+    worker.vm.network "private_network", ip: "192.168.56.12"
+  end
+end

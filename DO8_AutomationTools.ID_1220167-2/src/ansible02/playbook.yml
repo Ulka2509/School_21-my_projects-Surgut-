@@ -1,0 +1,28 @@
+---
+- name: install Consul server
+  hosts: consul
+  become: true
+  roles:
+    - install_consul_server
+
+- name: install Consul clients
+  hosts: api:db
+  become: true
+  roles:
+    - install_consul_client
+
+- name: install PostgreSQL on db
+  hosts: db
+  become: true
+  roles:
+    - install_db
+  tags:
+    - db
+
+- name: deploy app
+  hosts: api
+  become: true
+  roles:
+    - install_hotel_service
+  tags:
+    - api

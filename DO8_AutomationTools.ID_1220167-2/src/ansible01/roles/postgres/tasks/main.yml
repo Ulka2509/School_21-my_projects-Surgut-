@@ -1,0 +1,46 @@
+---
+- name: install PostgreSQL via apt
+  become: true
+  apt:
+    name: 
+      - postgresql
+      - python3-psycopg2
+    state: present
+    update_cache: yes
+
+- name: start and enable PostgreSQL
+  become: true
+  service:
+    name: postgresql
+    state: started
+    enabled: yes
+
+- name: Set password for postgres user
+  become: true
+  shell: sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres';"
+
+- name: create database
+  community.postgresql.postgresql_db:
+    name: test_db
+    state: present
+    login_user: postgres
+    login_password: "postgres"
+    login_host: localhost
+
+- name: copy init script
+  become: true
+  copy:
+    src: init.sql
+    dest: /tmp/init.sql
+    mode: '0644'
+
+- name: init database
+  community.postgresql.postgresql_script:
+    login_db: test_db
+    login_user: postgres
+    login_password: "postgres"
+    login_host: localhost
+    path: /tmp/init.sql
+
+# https://habr.com/ru/companies/otus/articles/721166/
+# https://stribny.name/posts/ansible-postgresql/

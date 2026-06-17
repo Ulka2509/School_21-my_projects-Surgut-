@@ -1,0 +1,27 @@
+---
+- name: install PostgreSQL
+  apt:
+    name:
+      - postgresql
+      - python3-psycopg2
+    state: present
+    update_cache: yes
+
+- name: start and enable PostgreSQL
+  service:
+    name: postgresql
+    state: started
+    enabled: yes
+
+- name: Set password for postgres user
+  shell: sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres'"
+# - name: create hotels_db
+#   command: sudo -iu postgres psql postgres -c "CREATE DATABASE hotels_db"
+
+# - name: create database
+#   community.postgresql.postgresql_db:
+#     name: hotels_db
+#     state: present
+#     login_user: postgres
+#     login_password: "postgres"
+#     login_host: localhost

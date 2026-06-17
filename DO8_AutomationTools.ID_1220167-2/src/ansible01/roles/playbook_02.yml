@@ -1,0 +1,14 @@
+---   
+- name: deploy apllication 
+  hosts: node01
+  become: true # Выполнение с sudo
+  roles:
+    - application
+
+- name: setup Apache & PostgreSQL
+  hosts: node02
+  roles:
+    - apache
+    - postgres
+
+# https://habr.com/ru/companies/otus/articles/721166/
